@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects &mdash; Erwin Wahyura</title>
+  <meta name="description" content="Projects by Erwin Wahyura." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="nav-logo">Erwin Wahyura</a>
+      <div class="nav-links">
+        <a href="projects.html" class="active">Projects</a>
+        <a href="articles.html">Articles</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="page-header">
+      <h1>Projects</h1>
+      <p>Things I've built, am building, or shipped into the world.</p>
+    </div>
+
+    <div class="projects-grid">
+
+      <div class="project-item" id="tamagotchi">
+        <div class="project-item-head">
+          <span class="project-item-title">Tamagotchi</span>
+          <span class="badge badge-progress">In progress</span>
+          <span class="project-item-year">2026</span>
+        </div>
+        <p class="project-item-desc">
+          A custom virtual pet device built from scratch. An ESP32-S3 microcontroller drives a 1.9&quot; IPS display showing pixel art I draw myself. Three buttons handle all interaction. The game loop tracks hunger, happiness, and cleanliness &mdash; neglect the pet long enough and it doesn't end well. This is my first embedded project and first time soldering.
+        </p>
+        <div class="project-item-tags">
+          <span>ESP32-S3</span><span>C++</span><span>Arduino</span><span>Pixel Art</span><span>Hardware</span>
+        </div>
+      </div>
+
+      <div class="project-item" id="geoweather">
+        <div class="project-item-head">
+          <span class="project-item-title">GeoWeather</span>
+          <span class="badge badge-beta">Beta</span>
+          <span class="project-item-year">2025</span>
+        </div>
+        <p class="project-item-desc">
+          Real-time global weather platform with interactive maps and 3D terrain. A Go REST API collects weather data from OpenWeatherMap via cron, stored in PostgreSQL. The frontend uses React with D3.js for 2D maps and Three.js for a 3D globe &mdash; hover over a region to see temperature, humidity, and wind data update in real time.
+        </p>
+        <div class="project-item-tags">
+          <span>Go</span><span>PostgreSQL</span><span>React</span><span>D3.js</span><span>Three.js</span><span>Vite</span>
+        </div>
+        <div class="project-item-links">
+          <a href="https://weather.erwarx.com" target="_blank" rel="noopener noreferrer">Live &rarr;</a>
+          <a href="https://github.com/erwinwahyura/gooking" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
+        </div>
+      </div>
+
+      <div class="project-item" id="gis">
+        <div class="project-item-head">
+          <span class="project-item-title">GIS Explorer</span>
+          <span class="badge badge-done">Complete</span>
+          <span class="project-item-year">2025</span>
+        </div>
+        <p class="project-item-desc">
+          Interactive mapping app for Indonesia and Japan built with vanilla JavaScript and D3.js. Click any region to see climate info, local products, mountains, and national parks. Renders GeoJSON with custom projections and smooth hover interactions.
+        </p>
+        <div class="project-item-tags">
+          <span>JavaScript</span><span>D3.js</span><span>Tailwind CSS</span><span>Vite</span><span>GeoJSON</span>
+        </div>
+        <div class="project-item-links">
+          <a href="https://github.com/erwinwahyura/gooking" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
+        </div>
+      </div>
+
+      <div class="project-item" id="weather-api">
+        <div class="project-item-head">
+          <span class="project-item-title">Weather API</span>
+          <span class="badge badge-live">Live</span>
+          <span class="project-item-year">2025</span>
+        </div>
+        <p class="project-item-desc">
+          RESTful backend service for weather data with clean Handler-Service-Repository layering. PostgreSQL with Squirrel query builder and golang-migrate for schema versioning. OpenWeatherMap integration with configurable cron-based collection. Built as part of the Gooking monorepo while learning Go.
+        </p>
+        <div class="project-item-tags">
+          <span>Go</span><span>PostgreSQL</span><span>Squirrel</span><span>REST API</span><span>Cron</span>
+        </div>
+        <div class="project-item-links">
+          <a href="https://github.com/erwinwahyura/gooking" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <span>Erwin Wahyura &mdash; erwarx.com</span>
+    <a href="https://github.com/erwinwahyura" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </footer>
+
+</body>
+</html>

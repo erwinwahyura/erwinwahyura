@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Gooking Journey &mdash; Erwin Wahyura</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="../index.html" class="nav-logo">Erwin Wahyura</a>
+      <div class="nav-links">
+        <a href="../projects.html">Projects</a>
+        <a href="../articles.html" class="active">Articles</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <article class="article-detail">
+      <a href="../articles.html" class="article-detail-back">&larr; All articles</a>
+
+      <div class="article-detail-meta">
+        <span class="article-detail-date">November 20, 2025</span>
+      </div>
+
+      <h1>The Gooking Journey</h1>
+
+      <div class="article-detail-tags">
+        <span>Go</span>
+        <span>Microservices</span>
+        <span>Architecture</span>
+        <span>Learning</span>
+      </div>
+
+      <img
+        class="article-cover"
+        src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=600&fit=crop"
+        alt="Code on a laptop"
+      />
+
+      <div class="article-body">
+        <h2>Why Go</h2>
+        <p>I'd been writing JavaScript for most of my career. It's flexible, forgiving, and everywhere. But I kept hearing about Go &mdash; its simplicity, its speed, its opinionated approach to concurrency and error handling. I wanted to understand why people loved it so much.</p>
+        <p>Rather than following tutorials, I decided to learn by building real services. Not todo apps or calculators, but actual backend systems that handle data, talk to databases, and serve APIs. That's how Gooking was born. The name combines "Go" and "cooking," because I was cooking up Go services.</p>
+
+        <h2>Starting with weather</h2>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=750&fit=crop" alt="Building the Weather API" />
+          <figcaption>Building the Weather API: CRUD operations and database integration</figcaption>
+        </figure>
+        <p>The first service was a Weather API. CRUD operations for weather records, integration with OpenWeatherMap, and a PostgreSQL database for persistence. Simple on the surface, but it taught me a lot.</p>
+        <p>Go's error handling philosophy &mdash; where every error is explicit and must be dealt with &mdash; felt verbose at first. Coming from JavaScript's try-catch-and-hope approach, writing "if err != nil" on every other line felt tedious. But slowly I began to appreciate it. My code became more predictable. Bugs were caught at compile time instead of runtime.</p>
+
+        <h2>Finding the architecture</h2>
+        <p>The biggest lesson came when I restructured everything into a proper layered architecture. Handler, Service, Repository. Each layer with a clear responsibility. Dependency injection through constructors. No global variables. No shortcuts.</p>
+        <p>This pattern felt over-engineered for a personal project at first. But as I added the scraper service, the cron scheduler, and the GIS endpoints, the architecture paid for itself. Adding a new feature meant adding a method to each layer in sequence, and each piece was testable in isolation. The structure wasn't overhead. It was infrastructure.</p>
+
+        <h2>Growing into a monorepo</h2>
+        <p>As ideas accumulated &mdash; a bookmark manager, a webhook tester, an analytics dashboard &mdash; I needed a monorepo structure. Shared packages like database utilities and scheduling went into a common "pkg" directory, while each service lived in its own folder with its own entry point, migrations, and configuration.</p>
+        <p>The GIS Explorer became the second major feature. It started as a way to visualize regional data on interactive maps and grew into a rich frontend with D3.js. Adding backend endpoints to the existing Weather API service taught me about extending services without breaking existing functionality.</p>
+
+        <h2>What I learned</h2>
+        <p>Gooking taught me that the best way to learn a technology is to build something you genuinely care about. Go's philosophy of simplicity and explicitness changed how I think about code in any language. The microservices architecture taught me that good structure is an investment, not a tax.</p>
+        <p>The project is still growing. There are services I haven't built yet, features I haven't polished, and patterns I haven't explored. But that's the beauty of a learning project. It's never finished because you're never done learning.</p>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span>Erwin Wahyura &mdash; erwarx.com</span>
+    <a href="https://github.com/erwinwahyura" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </footer>
+
+</body>
+</html>

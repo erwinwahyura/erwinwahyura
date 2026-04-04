@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Articles &mdash; Erwin Wahyura</title>
+  <meta name="description" content="Writing by Erwin Wahyura on Go, hardware, and building things." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="nav-logo">Erwin Wahyura</a>
+      <div class="nav-links">
+        <a href="projects.html">Projects</a>
+        <a href="articles.html" class="active">Articles</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="page-header">
+      <h1>Articles</h1>
+      <p>Build logs, deep dives, and things I figured out the hard way.</p>
+    </div>
+
+    <div class="articles-list">
+
+      <div class="articles-group">
+        <div class="articles-year">2026</div>
+
+        <a href="articles/tamagotchi-part-3.html" class="article-item">
+          <div class="article-item-tag">Tamagotchi from Scratch &middot; Part 3</div>
+          <div class="article-item-title">Designing the Game</div>
+          <div class="article-item-excerpt">Before writing any code, I mapped out the core game loop. A Tamagotchi is basically a state machine with feelings.</div>
+        </a>
+
+        <a href="articles/tamagotchi-part-2.html" class="article-item">
+          <div class="article-item-tag">Tamagotchi from Scratch &middot; Part 2</div>
+          <div class="article-item-title">Choosing the Hardware</div>
+          <div class="article-item-excerpt">ESP32 vs Raspberry Pi, IPS vs AMOLED, all-in-one boards vs DIY. The decisions behind building a custom handheld for about $35.</div>
+        </a>
+
+        <a href="articles/tamagotchi-part-1.html" class="article-item">
+          <div class="article-item-tag">Tamagotchi from Scratch &middot; Part 1</div>
+          <div class="article-item-title">Why a Tamagotchi?</div>
+          <div class="article-item-excerpt">After 8 years of writing backend services, I wanted to build something I could hold in my hands.</div>
+        </a>
+      </div>
+
+      <div class="articles-group">
+        <div class="articles-year">2025</div>
+
+        <a href="articles/building-geoweather.html" class="article-item">
+          <div class="article-item-tag">Go &middot; React &middot; D3.js</div>
+          <div class="article-item-title">Building GeoWeather</div>
+          <div class="article-item-excerpt">How a curiosity about weather data turned into a full-stack platform with interactive maps, 3D terrain, and real-time data from around the world.</div>
+        </a>
+
+        <a href="articles/the-gooking-journey.html" class="article-item">
+          <div class="article-item-tag">Go &middot; Microservices &middot; Architecture</div>
+          <div class="article-item-title">The Gooking Journey</div>
+          <div class="article-item-excerpt">What started as "learn Go by building something" became a microservices monorepo, a weather platform, a GIS explorer, and a lesson in software architecture.</div>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <span>Erwin Wahyura &mdash; erwarx.com</span>
+    <a href="https://github.com/erwinwahyura" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why a Tamagotchi? &mdash; Erwin Wahyura</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="../index.html" class="nav-logo">Erwin Wahyura</a>
+      <div class="nav-links">
+        <a href="../projects.html">Projects</a>
+        <a href="../articles.html" class="active">Articles</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <article class="article-detail">
+      <a href="../articles.html" class="article-detail-back">&larr; All articles</a>
+
+      <div class="article-detail-meta">
+        <span class="article-detail-series">Tamagotchi from Scratch &middot; Part 1</span>
+        <span class="article-detail-date">February 5, 2026</span>
+      </div>
+
+      <h1>Why a Tamagotchi?</h1>
+
+      <div class="article-detail-tags">
+        <span>Hardware</span>
+        <span>Pixel Art</span>
+        <span>Tamagotchi</span>
+      </div>
+
+      <img
+        class="article-cover"
+        src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=1200&h=600&fit=crop"
+        alt="Tamagotchi concept"
+      />
+
+      <div class="article-body">
+        <h2>The itch to build something physical</h2>
+        <p>I've been writing backend services in Go for the better part of 8 years. High-traffic e-commerce systems, flash sales handling thousands of requests per second, distributed caching layers. The usual. But lately I've been feeling the itch to build something I can actually hold in my hands.</p>
+        <p>There's a particular satisfaction in physical objects that software doesn't quite provide. A deployed API is invisible. It lives on a server somewhere, doing its job silently. You can't pick it up, show it to someone, or put it on your desk. I wanted that tangibility.</p>
+
+        <h2>Where the idea came from</h2>
+        <p>I've dabbled in game dev with Godot and pixel art on the side, so when the idea of building a custom Tamagotchi popped into my head, it clicked immediately. It sits right at the intersection of things I enjoy: a tiny game, running on real hardware, with pixel art I can draw myself.</p>
+        <p>No cloud infrastructure. No Kubernetes. Just a microcontroller, a screen, and a virtual pet that gets hungry if I forget about it. After years of distributed systems, that simplicity sounded incredibly appealing.</p>
+
+        <h2>What I'm building</h2>
+        <p>The plan is a custom virtual pet device built from scratch. A small handheld with a color display, three buttons, and a buzzer for sound. The pet lives on the device. It eats, sleeps, plays, gets dirty, and evolves over time based on how well you take care of it.</p>
+        <p>I want to draw all the sprites myself in pixel art, design the game mechanics from the ground up, wire the hardware on a breadboard, and eventually put it all in a 3D-printed case. It's ambitious for someone who's never soldered before, but that's also kind of the point.</p>
+
+        <h2>This is a build log</h2>
+        <p>I'm writing this series as I go. Some parts are still empty, some plans will change, and I'm sure I'll make mistakes worth documenting. That's fine. The messy middle is usually the most interesting part of any project.</p>
+        <p>The next article covers the hardware decisions: why I chose an ESP32 over a Raspberry Pi, how I picked the display, and what the full component list looks like at about $35 total.</p>
+      </div>
+
+      <nav class="series-nav">
+        <div class="series-nav-label">Tamagotchi from Scratch</div>
+        <div class="series-nav-list">
+          <a href="tamagotchi-part-1.html" class="series-nav-item current">Part 1 &mdash; Why a Tamagotchi?</a>
+          <a href="tamagotchi-part-2.html" class="series-nav-item">Part 2 &mdash; Choosing the Hardware</a>
+          <a href="tamagotchi-part-3.html" class="series-nav-item">Part 3 &mdash; Designing the Game</a>
+        </div>
+      </nav>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span>Erwin Wahyura &mdash; erwarx.com</span>
+    <a href="https://github.com/erwinwahyura" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Building GeoWeather &mdash; Erwin Wahyura</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="../index.html" class="nav-logo">Erwin Wahyura</a>
+      <div class="nav-links">
+        <a href="../projects.html">Projects</a>
+        <a href="../articles.html" class="active">Articles</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <article class="article-detail">
+      <a href="../articles.html" class="article-detail-back">&larr; All articles</a>
+
+      <div class="article-detail-meta">
+        <span class="article-detail-date">December 10, 2025</span>
+      </div>
+
+      <h1>Building GeoWeather</h1>
+
+      <div class="article-detail-tags">
+        <span>React</span>
+        <span>D3.js</span>
+        <span>Three.js</span>
+        <span>Go</span>
+      </div>
+
+      <img
+        class="article-cover"
+        src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=1200&h=600&fit=crop"
+        alt="Weather visualization"
+      />
+
+      <div class="article-body">
+        <h2>The spark</h2>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=1200&h=750&fit=crop" alt="Interactive weather maps" />
+          <figcaption>Interactive weather maps showing patterns across regions</figcaption>
+        </figure>
+        <p>It started with a simple question: what's the weather like right now in cities I've never been to? Not just a number on a screen, but the feeling of it. The humidity in Jakarta, the wind in Tokyo, the dry heat of a desert town. I wanted to see weather the way a map tells a story &mdash; spatially, visually, all at once.</p>
+        <p>Most weather apps give you a search bar and a five-day forecast. That felt incomplete. I wanted something I could look at and immediately understand the weather patterns across entire regions. So I decided to build it myself.</p>
+
+        <h2>Choosing the tools</h2>
+        <p>The backend was straightforward. I'd been learning Go through Gooking, so I built a REST API with the same layered architecture: handlers, services, repositories, wired to PostgreSQL. OpenWeatherMap became my data source, with a cron scheduler scraping weather data for cities across multiple countries.</p>
+        <p>The frontend was where it got interesting. I chose React for the UI shell, but the real magic would come from D3.js for interactive 2D maps and Three.js for 3D terrain visualization. The learning curve was steep, but that was the point.</p>
+
+        <h2>Making maps come alive</h2>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=1200&h=750&fit=crop" alt="D3.js map visualization" />
+          <figcaption>D3.js and Three.js bring geographic data to life</figcaption>
+        </figure>
+        <p>D3.js is powerful but unforgiving. You don't get a map component. You get primitives for binding data to SVG paths. I spent days understanding GeoJSON projections, figuring out how to render Indonesia's 17,000 islands or Japan's detailed prefectures with proper scaling and interaction.</p>
+        <p>The breakthrough moment was when I got hover interactions working. Moving your mouse over a region and seeing its weather data appear in a side panel &mdash; temperature, humidity, wind speed, all updating smoothly. It felt like the map was breathing.</p>
+        <p>Three.js added another dimension, literally. I created a 3D terrain view where you could rotate the globe, zoom into regions, and see weather data overlaid on topographic surfaces. Technically challenging but worth every late night debugging WebGL shaders.</p>
+
+        <h2>Lessons along the way</h2>
+        <p>The hardest part wasn't the code. It was knowing when to stop adding features and start polishing what existed. I kept wanting to add more countries, more data points, more visualizations. Eventually I learned that a focused, well-executed product beats a sprawling half-finished one.</p>
+        <p>I also learned that data visualization is fundamentally about empathy. Every design choice &mdash; color scales for temperature, icon sizes for wind speed, animation speed for transitions &mdash; is about helping someone else understand information quickly and intuitively.</p>
+
+        <h2>Where it stands</h2>
+        <p>GeoWeather now covers weather data for Indonesia and Japan, with interactive D3.js maps, a data panel with regional statistics, and a 3D globe visualization. The backend handles automatic data collection via cron jobs, running on the same Go infrastructure as my other services.</p>
+        <p>It's not perfect, and there's always more to build. But it taught me something important: the best projects are the ones where you're genuinely curious about the outcome. When you build something because you actually want to use it, the motivation never runs dry.</p>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span>Erwin Wahyura &mdash; erwarx.com</span>
+    <a href="https://github.com/erwinwahyura" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </footer>
+
+</body>
+</html>

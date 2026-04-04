@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Choosing the Hardware &mdash; Erwin Wahyura</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="../index.html" class="nav-logo">Erwin Wahyura</a>
+      <div class="nav-links">
+        <a href="../projects.html">Projects</a>
+        <a href="../articles.html" class="active">Articles</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <article class="article-detail">
+      <a href="../articles.html" class="article-detail-back">&larr; All articles</a>
+
+      <div class="article-detail-meta">
+        <span class="article-detail-series">Tamagotchi from Scratch &middot; Part 2</span>
+        <span class="article-detail-date">February 10, 2026</span>
+      </div>
+
+      <h1>Choosing the Hardware</h1>
+
+      <div class="article-detail-tags">
+        <span>ESP32</span>
+        <span>Hardware</span>
+        <span>Tamagotchi</span>
+      </div>
+
+      <img
+        class="article-cover"
+        src="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=1200&h=600&fit=crop"
+        alt="ESP32 hardware"
+      />
+
+      <div class="article-body">
+        <h2>The brain: why ESP32-S3?</h2>
+        <p>My first instinct was a Raspberry Pi. Familiar territory, runs Linux, tons of tutorials. But for a dedicated single-purpose device like a Tamagotchi, it's overkill. Slow boot times (10–30 seconds), power hungry, and way more complexity than needed.</p>
+        <p>The ESP32-S3 is purpose-built for this kind of thing. It boots instantly, sips power (great for battery life later), and has more than enough horsepower for driving a small display and running game logic. The dual-core 240MHz processor with 8MB PSRAM is honestly absurd for a virtual pet, but it means I won't hit any performance walls.</p>
+
+        <h2>The screen: 1.9" IPS LCD</h2>
+        <p>I went back and forth on screen size. Too small and the pixel art loses detail. Too big and it stops feeling like a handheld toy. The 1.9" IPS display (170×320 resolution) on the LILYGO T-Display-S3 hit the sweet spot.</p>
+        <p>Quick note for anyone confused by "IPS vs LCD": IPS is a type of LCD. It just has better viewing angles and color accuracy compared to cheaper TN panels. I also looked at AMOLED options (deeper blacks, gorgeous contrast), but at nearly double the price for a first project, it wasn't worth it.</p>
+
+        <h2>The board: LILYGO T-Display-S3</h2>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&h=750&fit=crop" alt="LILYGO T-Display-S3 board" />
+          <figcaption>LILYGO T-Display-S3 &mdash; ESP32-S3 and 1.9" IPS display in one package</figcaption>
+        </figure>
+        <p>Instead of buying an ESP32 and a screen separately, I went with the LILYGO T-Display-S3. It's an all-in-one board with the ESP32-S3 and 1.9" IPS display already integrated: dual-core LX7 at 240MHz, 16MB Flash, 8MB PSRAM, USB-C for power and programming, a JST battery connector for a future LiPo, and a built-in programmable button on IO21.</p>
+        <p>That built-in button means I only need 2 external buttons instead of 3 for my Left / OK / Right control scheme. Strong community support with tons of Arduino and PlatformIO examples sealed the deal.</p>
+
+        <h2>Additional components</h2>
+        <p>Beyond the board, I need surprisingly little: two tactile push buttons for Left and Right, one passive buzzer (3V–6V, 16 ohm) for sound, a mini breadboard for prototyping, and short jumper wires. I'm skipping the LiPo battery and 3D printed case for now &mdash; USB-C power is fine during development.</p>
+
+        <h2>Total cost</h2>
+        <p>Living in Indonesia, components on Tokopedia run higher than international prices. The LILYGO T-Display-S3 was Rp 435,000, buttons and buzzer ~Rp 5,000, breadboard and wires ~Rp 31,000, soldering kit ~Rp 88,000. Total: roughly Rp 560,000 &mdash; about $35 USD.</p>
+      </div>
+
+      <nav class="series-nav">
+        <div class="series-nav-label">Tamagotchi from Scratch</div>
+        <div class="series-nav-list">
+          <a href="tamagotchi-part-1.html" class="series-nav-item">Part 1 &mdash; Why a Tamagotchi?</a>
+          <a href="tamagotchi-part-2.html" class="series-nav-item current">Part 2 &mdash; Choosing the Hardware</a>
+          <a href="tamagotchi-part-3.html" class="series-nav-item">Part 3 &mdash; Designing the Game</a>
+        </div>
+      </nav>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span>Erwin Wahyura &mdash; erwarx.com</span>
+    <a href="https://github.com/erwinwahyura" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </footer>
+
+</body>
+</html>
