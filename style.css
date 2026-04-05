@@ -41,11 +41,17 @@
   --max-w: 680px;
   --radius: 6px;
   
-  /* Typography — vertical rhythm */
+  /* Typography — vertical rhythm + character spacing */
   --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --leading-tight: 1.4;
   --leading-normal: 1.7;
   --leading-relaxed: 1.9;
+  
+  /* Tracking (letter-spacing) for readability */
+  --tracking-tight: -0.02em;     /* Large display text only */
+  --tracking-normal: 0.01em;     /* Body text — slightly wider for readability */
+  --tracking-wide: 0.02em;        /* Small text, captions */
+  --tracking-wider: 0.04em;      /* Labels, uppercase (optical compensation) */
 }
 
 html {
@@ -59,6 +65,7 @@ body {
   background: var(--bg);
   color: var(--text);
   line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-normal);  /* Slightly wider character spacing */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -104,6 +111,7 @@ a {
 .nav-links a {
   font-size: 0.8125rem;
   font-weight: 500;
+  letter-spacing: var(--tracking-wide);
   color: var(--text-2);
   position: relative;
   transition: color 0.2s ease;
@@ -148,7 +156,7 @@ main {
 .hero-label {
   font-size: 0.75rem;
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: var(--tracking-wider);
   text-transform: uppercase;
   color: var(--text-3);
   margin-bottom: var(--space-md);
@@ -168,6 +176,7 @@ main {
   color: var(--text-2);
   max-width: 480px;
   line-height: var(--leading-relaxed);
+  letter-spacing: var(--tracking-normal);
   margin-bottom: var(--space-xl);
 }
 
@@ -224,7 +233,7 @@ main {
 .section-label {
   font-size: 0.6875rem;
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: var(--tracking-wider);
   text-transform: uppercase;
   color: var(--text-3);
 }
@@ -275,6 +284,7 @@ main {
   font-size: 0.875rem;
   color: var(--text-2);
   line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-normal);
   margin-bottom: var(--space-sm);
 }
 
@@ -291,14 +301,14 @@ main {
   background: var(--border-subtle);
   padding: 2px 8px;
   border-radius: 100px;
-  letter-spacing: 0.02em;
+  letter-spacing: var(--tracking-wide);
 }
 
 /* ── Badges — reduced visual weight ── */
 .badge {
   font-size: 0.625rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: var(--tracking-wider);
   text-transform: uppercase;
   padding: 2px 6px;
   border-radius: 4px;
@@ -389,6 +399,7 @@ main {
 .page-header p {
   font-size: 0.9375rem;
   color: var(--text-2);
+  letter-spacing: var(--tracking-normal);
 }
 
 .projects-grid {
@@ -434,6 +445,7 @@ main {
   font-size: 0.875rem;
   color: var(--text-2);
   line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-normal);
   margin-bottom: var(--space-md);
 }
 
@@ -451,6 +463,7 @@ main {
   background: var(--border-subtle);
   padding: 2px 8px;
   border-radius: 100px;
+  letter-spacing: var(--tracking-wide);
 }
 
 .project-item-links {
@@ -500,7 +513,7 @@ main {
 .articles-year {
   font-size: 0.6875rem;
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: var(--tracking-wider);
   text-transform: uppercase;
   color: var(--text-3);
   margin-bottom: var(--space-xs);
@@ -528,7 +541,7 @@ main {
   color: var(--text-3);
   margin-bottom: var(--space-xs);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tracking-wide);
 }
 
 .article-item-title {
@@ -543,6 +556,7 @@ main {
   font-size: 0.8125rem;
   color: var(--text-2);
   line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-normal);
 }
 
 /* ── Article detail ── */
@@ -602,6 +616,7 @@ main {
 .article-detail-tags span {
   font-size: 0.6875rem;
   font-weight: 500;
+  letter-spacing: var(--tracking-wide);
   color: var(--text-3);
   background: var(--surface);
   border: 1px solid var(--border);
@@ -630,6 +645,7 @@ main {
   font-size: 0.9375rem;
   color: var(--text-2);
   line-height: var(--leading-relaxed);
+  letter-spacing: var(--tracking-normal);
   margin-bottom: var(--space-lg);
 }
 
@@ -647,6 +663,7 @@ main {
   font-size: 0.75rem;
   color: var(--text-3);
   text-align: center;
+  letter-spacing: var(--tracking-wide);
   margin-top: var(--space-sm);
 }
 
@@ -659,7 +676,7 @@ main {
 .series-nav-label {
   font-size: 0.6875rem;
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: var(--tracking-wider);
   text-transform: uppercase;
   color: var(--text-3);
   margin-bottom: var(--space-md);
@@ -703,6 +720,7 @@ main {
   gap: var(--space-md);
   flex-wrap: wrap;
   font-size: 0.75rem;
+  letter-spacing: var(--tracking-wide);
   color: var(--text-3);
 }
 
