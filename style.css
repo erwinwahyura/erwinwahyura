@@ -12,10 +12,10 @@
    ───────────────────────────────────────────────────────────────── */
 
 :root {
-  /* Neutral palette — warmer, more organic than pure grays */
-  --bg: #faf9f7;
-  --surface: #f5f3ef;
-  --surface-hover: #edeae5;
+  /* Neutral palette — clean white */
+  --bg: #ffffff;
+  --surface: #f8f8f8;
+  --surface-hover: #f0f0f0;
   --border: #e5e2dc;
   --border-subtle: #f0ede8;
   
@@ -81,7 +81,7 @@ a {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(250, 249, 247, 0.85);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
