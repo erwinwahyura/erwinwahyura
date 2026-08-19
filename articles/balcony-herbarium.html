@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Building a Herbarium for My Balcony &mdash; Erwin Wahyura</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="../index.html" class="nav-logo">Erwin Wahyura</a>
+      <div class="nav-links">
+        <a href="../projects.html">Projects</a>
+        <a href="../articles.html" class="active">Articles</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <article class="article-detail">
+      <a href="../articles.html" class="article-detail-back">&larr; All articles</a>
+
+      <div class="article-detail-meta">
+        <span class="article-detail-date">August 19, 2026</span>
+      </div>
+
+      <h1>Building a Herbarium for My Balcony</h1>
+
+      <div class="article-detail-tags">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>Static Site</span>
+      </div>
+
+      <img
+        class="article-cover"
+        src="https://images.unsplash.com/photo-1512428813834-c702c7702b78?w=1200&h=600&fit=crop"
+        alt="Balcony plant collection"
+      />
+
+      <div class="article-body">
+        <h2>Six plants, six specimen sheets</h2>
+        <p>My balcony collection is small &mdash; six plants, none of them rare, all of them the kind of thing you buy at a weekend plant market and then forget the name of within a month. I kept mixing up which one was the Philodendron Brasil and which was the Pothos Marble Queen, and I was tired of squinting at leaf shapes to tell them apart. I wanted something I could glance at and just know.</p>
+        <p>The obvious answer was a spreadsheet. The more interesting answer was a herbarium.</p>
+
+        <h2>Why specimen tags</h2>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=1200&h=750&fit=crop" alt="Pressed plant specimen style layout" />
+          <figcaption>Herbarium specimen sheets: photo, Latin name, and notes, laid out like a museum record</figcaption>
+        </figure>
+        <p>Real herbaria &mdash; the botanical kind, not the plant-shop kind &mdash; catalog specimens with a specific format: a photo or pressing, the Latin binomial, the common name, and collection notes. It's a format built for clarity, not decoration. That felt right for six plants I actually needed to keep alive.</p>
+        <p>So <code>balcony-herbarium</code> became a single HTML page, numbered specimen sheets 01 through 06, each with a photo, Latin name, common name, the Indonesian local name, and plain care notes on light and water. No framework, no build step &mdash; just markup, because six plants don't need a pipeline.</p>
+
+        <h2>The specimens</h2>
+        <p>The collection: <em>Tradescantia zebrina</em> (Adam Hawa Rambat), <em>Asparagus setaceus</em> (Pakis Asparagus), <em>Philodendron hederaceum</em> 'Brasil' (Filodendron Brasil), <em>Monstera adansonii</em> var. (Janda Bolong Variegata), <em>Epipremnum aureum</em> 'Marble Queen' (Sirih Gading Marmer), and an <em>Aglaonema</em> sp. (Sri Rejeki). Writing the care notes in Indonesian wasn't a design choice so much as the honest one &mdash; it's how I actually think about watering schedules and light exposure, not in translated English.</p>
+
+        <h2>The refactor</h2>
+        <p>The first pass had hardcoded cards and a bug &mdash; photo paths pointed at an <code>images/</code> folder that didn't exist, so nothing rendered. The second pass fixed that and went further: the six specimens moved into a single <code>specimens</code> array in an inline script, and the page renders each card, the index nav, and even the footer's specimen count from that data on load. Adding specimen 07 now means appending one object, not copy-pasting a card.</p>
+        <p>The design got quieter at the same time &mdash; Fraunces for the serif headers, Work Sans for body text, IBM Plex Mono for the specimen data, with the number moved into a circular seal beneath each photo and the specs laid out as a definition list instead of icon rows. It reads less like a plant app and more like an actual herbarium sheet, which was the point from the start.</p>
+
+        <h2>Where it stands</h2>
+        <p>It's not trying to be a plant-tracking app. There's no watering reminders, no growth log, no database. It's six specimen sheets that tell me, at a glance, what I'm looking at and how not to kill it &mdash; now rendered from data instead of hand-copied markup. Sometimes the right scope for a project is exactly as big as the problem in front of you, and sometimes you go back a few hours later and make the format do a bit more work.</p>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span>Erwin Wahyura &mdash; erwarx.com</span>
+    <a href="https://github.com/erwinwahyura" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </footer>
+
+</body>
+</html>
