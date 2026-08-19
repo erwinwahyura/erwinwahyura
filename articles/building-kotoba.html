@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Building Kotoba: A Language Learning App Born from Frustration &mdash; Erwin Wahyura</title>
+  <meta name="description" content="After years of Duolingo streaks without retention, I built a Japanese vocabulary app with deep explanations, grammar patterns, and home screen widgets. The tool I wished I had for N3." />
+  <meta name="theme-color" content="#ffffff" />
+  <meta property="og:title" content="Building Kotoba: A Language Learning App Born from Frustration" />
+  <meta property="og:description" content="After years of Duolingo streaks without retention, I built the Japanese learning tool I actually needed." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://erwinwahyura.github.io/erwinwahyura/articles/building-kotoba.html" />
+  <link rel="canonical" href="https://erwinwahyura.github.io/erwinwahyura/articles/building-kotoba.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎋</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="../index.html" class="nav-logo">Erwin Wahyura</a>
+      <div class="nav-links">
+        <a href="../projects.html">Projects</a>
+        <a href="../articles.html" class="active">Articles</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <article class="article-detail">
+      <a href="../articles.html" class="article-detail-back">&larr; All articles</a>
+
+      <div class="article-detail-meta">
+        <span class="article-detail-date">April 5, 2026</span>
+      </div>
+
+      <h1>Building Kotoba: A Language Learning App Born from Frustration</h1>
+
+      <div class="article-detail-tags">
+        <span>Go</span>
+        <span>Swift</span>
+        <span>SQLite</span>
+        <span>Japanese</span>
+        <span>Language Learning</span>
+      </div>
+
+      <div class="article-body">
+        <p>I've been learning Japanese for three years. N5 was fine. N4 was manageable. But N3? The grammar forms started bleeding into each other. 〜わけにはいかない versus 〜わけがない. 〜ものだ versus 〜ものではない. I could memorize them for the test, but a week later they'd dissolved into mush.</p>
+
+        <p>Meanwhile, my Duolingo streak hit 400 days. I was "practicing" daily. But I wasn't <em>learning</em>. The app taught me to recognize patterns, not to understand them. I'd see a grammar question, guess based on repetition, and move on. No explanation of why. No nuance. No connection to the larger system.</p>
+
+        <p>I tried Anki. Better retention, but I had to remember to open it. The friction of "I should study now" meant I often didn't. And when I did, it was just flashcards — no context, no examples, no sense of how a word actually lived in sentences.</p>
+
+        <p>What I wanted was something in between. Passive enough that I'd actually do it. Deep enough that I'd actually learn. So I started building Kotoba.</p>
+
+        <h2>Passive Learning Through Widgets</h2>
+
+        <p>The core insight: I look at my phone's home screen 50+ times a day. That's 50+ chances to see a word, its reading, its meaning — without opening an app, without "deciding" to study.</p>
+
+        <p>Kotoba's iOS widget shows one vocabulary word or grammar pattern at a time. Short meaning on the surface. Tap it and you're in the full app with detailed explanations, example sentences, usage notes, and — crucially — related patterns that commonly get confused.</p>
+
+        <p>After you tap and review the full entry, the widget cycles through reinforcement variants throughout the day. Same word, different context. Passive, ambient learning.</p>
+
+        <h2>Deep Explanations, Not Shallow Drills</h2>
+
+        <p>Every entry in Kotoba has:</p>
+
+        <p><strong>Multiple usage examples</strong> with nuance notes. Not just "this means X" but "this means X in this specific situation, with this tone, and here's what you'd say instead if the context were slightly different."</p>
+
+        <p><strong>Related patterns with explicit differences.</strong> 〜わけにはいかない (cannot afford to) lives right next to 〜わけがない (no way that), with a clear note: "These look similar but mean OPPOSITE things. This is the #1 confused pair."</p>
+
+        <p><strong>Common mistakes section.</strong> The errors native Japanese teachers see over and over. The things learners get wrong because they transferred logic from English.</p>
+
+        <p>This is the content I wish I'd had. Not dumbed down. Not overwhelming. Just precise.</p>
+
+        <h2>Technical Architecture</h2>
+
+        <p>Backend: Go with a dual-database design. PostgreSQL for development flexibility, SQLite for production on my Hetzner VPS. Both supported through a driver abstraction layer — same code, different deployment targets.</p>
+
+        <p>The grammar patterns API is the heart. Each pattern includes conjugation rules, multiple usage examples with Japanese/reading/meaning/nuance/alternative breakdowns, and related patterns with explicit key differences. This is teaching content as structured data.</p>
+
+        <p>iOS app: Swift with home screen widget extension. WidgetKit for the passive surface layer, SwiftUI for the detailed drill-down. The widget tracks which entries you've "opened" and shifts to reinforcement mode for those words throughout the day.</p>
+
+        <p>Data persistence: SQLite on a persistent Hetzner volume. Performance-tuned with WAL mode, memory-mapped I/O, and aggressive checkpointing. A single file I can back up by copying it. No external database service required.</p>
+
+        <h2>Why This Matters</h2>
+
+        <p>Language learning apps are mostly engagement engines. They optimize for daily active users, not actual fluency. Duolingo's business model depends on you continuing to use the app forever — not on you graduating out of needing it.</p>
+
+        <p>Kotoba is built for graduation. Every entry is designed to explain itself so clearly that you won't need it anymore once you've internalized the pattern. The widget is training wheels for recognition speed, not a permanent crutch.</p>
+
+        <p>I'm still building it. N3 grammar patterns are the current focus — the forms I personally struggle with. When it's solid, I'll expand to N2 and N1. The codebase is open source because maybe other frustrated learners can use or improve it.</p>
+
+        <p>少しずつ. Little by little.</p>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span>Erwin Wahyura &mdash; erwarx.com</span>
+    <a href="https://github.com/erwinwahyura" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </footer>
+
+</body>
+</html>

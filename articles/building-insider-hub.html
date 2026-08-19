@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Building Insider Hub &mdash; Erwin Wahyura</title>
+  <meta name="description" content="How I built a zero-cost financial intelligence system for Indonesian stock investing with automated scraping, AI summarization, and edge deployment." />
+  <meta name="theme-color" content="#ffffff" />
+  <meta property="og:title" content="Building Insider Hub — A Personal Bloomberg Terminal for $0" />
+  <meta property="og:description" content="Automated scraping, AI summarization, and edge deployment for Indonesian stock intelligence." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://erwinwahyura.github.io/erwinwahyura/articles/building-insider-hub.html" />
+  <link rel="canonical" href="https://erwinwahyura.github.io/erwinwahyura/articles/building-insider-hub.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎋</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="../index.html" class="nav-logo">Erwin Wahyura</a>
+      <div class="nav-links">
+        <a href="../projects.html">Projects</a>
+        <a href="../articles.html" class="active">Articles</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <article class="article-detail">
+      <a href="../articles.html" class="article-detail-back">&larr; All articles</a>
+
+      <div class="article-detail-meta">
+        <span class="article-detail-date">April 2026</span>
+      </div>
+
+      <h1>Building Insider Hub</h1>
+
+      <div class="article-detail-tags">
+        <span>Astro</span>
+        <span>Cloudflare Workers</span>
+        <span>Web Scraping</span>
+        <span>AI</span>
+      </div>
+
+      <div class="article-body">
+        <p>I don't have a Bloomberg Terminal. What I do have is a VPS, some patience, and a portfolio of Indonesian stocks that keep making moves while I'm asleep. The problem isn't access to information — it's filtering the signal from the noise.</p>
+
+        <h2>The problem with Indonesian stock news</h2>
+        <p>Google News gives you everything. IDX announcements are buried in PDFs. Reuters covers the big moves but misses the commodity plays. Twitter is... Twitter. By the time I've sifted through three tabs and a half-dozen bookmarked sites, the market has already reacted.</p>
+        <p>What I needed was something that watched these sources continuously, understood which tickers I actually held, and surfaced only the stories that mattered. With summaries. At the edge, close to me.</p>
+
+        <h2>The design constraints</h2>
+        <p>I set three hard rules before writing code:</p>
+        <p><strong>Zero infrastructure cost.</strong> I wasn't going to pay for a server to watch news. Cloudflare Workers has a generous free tier and runs at the edge — close to both the news sources and me in Jakarta.</p>
+        <p><strong>No maintenance burden.</strong> If I'm on vacation, this thing keeps running. No cron jobs to restart, no databases to migrate. Static site, automatic rebuilds.</p>
+        <p><strong>Actually useful output.</strong> Not raw links. Summaries I can scan in 10 seconds. Relevance scores. Clear indicators of which positions in my portfolio are affected.</p>
+
+        <h2>Architecture in three layers</h2>
+        <p>The system runs on three simple primitives:</p>
+
+        <h3>1. Collection</h3>
+        <p>Astro's static site generation is the backbone. During build, a custom data loader hits RSS feeds from Google News, Reuters, and IDX announcements. It parses the XML, extracts article URLs, and fetches full text where possible.</p>
+        <p>The scraping is intentionally lightweight — no headless browser, no complex JavaScript execution. Raw HTTP requests, HTML parsing with regex fallbacks, and graceful degradation when sites block or change layout.</p>
+
+        <h3>2. Intelligence</h3>
+        <p>Here's where it gets interesting. Each article gets run through a relevance scoring algorithm that checks:</p>
+        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+          <li>Does it mention tickers I hold? (ADRO, ITMG, PTBA, ANTM, INCO, BBRI, BBCA, TLKM, plus my positions in ITMG, PTPS, ESSA, PGEO)</li>
+          <li>Does it cover commodities I track? (Coal, nickel, palm oil, oil)</li>
+          <li>Is it a duplicate of something I've already seen?</li>
+          <li>What's the source credibility and recency?</li>
+        </ul>
+        <p>Articles scoring below 6/10 are dropped. Scoring 10/10 gets flagged for immediate attention. Everything else lands in the middle bucket — worth reading, but not urgent.</p>
+        <p>The summarization uses an LLM to extract 2-3 key bullets from full article text. This isn't just clipping the first paragraph — it's reading the whole piece, understanding the financial implications, and rewriting it for a portfolio holder's perspective.</p>
+
+        <h3>3. Delivery</h3>
+        <p>Output is static Markdown processed by Astro, deployed to Cloudflare Workers. The site updates every hour via a scheduled trigger. Build to live takes under 5 minutes.</p>
+        <p>The presentation is ruthlessly minimal. Each story shows: source, age ("21d ago"), headline, 2-3 key bullets, and affected tickers with impact ratings (🟢/🟡/🟠). No comments, no social features, no noise.</p>
+
+        <h2>What I learned</h2>
+        <p><strong>Static sites can be dynamic.</strong> The line between "static site generator" and "application" is blurrier than the marketing suggests. When your build pulls live data and your host supports scheduled rebuilds, you get most of the benefits of a dynamic app with none of the server management.</p>
+        <p><strong>Relevance filtering is harder than summarization.</strong> Getting an LLM to condense text is easy. Getting it to judge whether a coal price article actually affects your specific portfolio of Indonesian mining stocks — that requires context, ticker mappings, and careful prompt engineering.</p>
+        <p><strong>The edge matters for scraping.</strong> Running requests through Cloudflare's network means I'm hitting news sources from dozens of different IP addresses, not a single VPS that gets rate-limited after the 50th request. It's not why I chose Workers, but it's a nice side effect.</p>
+
+        <h2>What's next</h2>
+        <p>The current system is read-only. I'm experimenting with adding sentiment tracking over time — is news coverage of nickel getting more positive or negative? Are certain sources consistently early or late to moves?</p>
+        <p>There's also a longer-term question about automation. Right now I read the summaries and make my own decisions. At what point does high-confidence scoring + consistent sentiment = actionable signal? That's a dangerous line to cross, and I'm not there yet.</p>
+
+        <p>Until then, I have a personal Bloomberg Terminal that costs nothing, never sleeps, and fits in a static site. For a side project, that feels like enough.</p>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span>Erwin Wahyura &mdash; erwarx.com</span>
+    <a href="https://github.com/erwinwahyura" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </footer>
+
+</body>
+</html>
