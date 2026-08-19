@@ -41,8 +41,8 @@
 
       <img
         class="article-cover"
-        src="https://images.unsplash.com/photo-1512428813834-c702c7702b78?w=1200&h=600&fit=crop"
-        alt="Balcony plant collection"
+        src="../assets/balcony-herbarium/04-monstera.jpg"
+        alt="Monstera adansonii variegata, one of six specimens in the balcony collection"
       />
 
       <div class="article-body">
@@ -51,15 +51,38 @@
         <p>The obvious answer was a spreadsheet. The more interesting answer was a herbarium.</p>
 
         <h2>Why specimen tags</h2>
-        <figure>
-          <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=1200&h=750&fit=crop" alt="Pressed plant specimen style layout" />
-          <figcaption>Herbarium specimen sheets: photo, Latin name, and notes, laid out like a museum record</figcaption>
-        </figure>
         <p>Real herbaria &mdash; the botanical kind, not the plant-shop kind &mdash; catalog specimens with a specific format: a photo or pressing, the Latin binomial, the common name, and collection notes. It's a format built for clarity, not decoration. That felt right for six plants I actually needed to keep alive.</p>
         <p>So <code>balcony-herbarium</code> became a single HTML page, numbered specimen sheets 01 through 06, each with a photo, Latin name, common name, the Indonesian local name, and plain care notes on light and water. No framework, no build step &mdash; just markup, because six plants don't need a pipeline.</p>
 
         <h2>The specimens</h2>
         <p>The collection: <em>Tradescantia zebrina</em> (Adam Hawa Rambat), <em>Asparagus setaceus</em> (Pakis Asparagus), <em>Philodendron hederaceum</em> 'Brasil' (Filodendron Brasil), <em>Monstera adansonii</em> var. (Janda Bolong Variegata), <em>Epipremnum aureum</em> 'Marble Queen' (Sirih Gading Marmer), and an <em>Aglaonema</em> sp. (Sri Rejeki). Writing the care notes in Indonesian wasn't a design choice so much as the honest one &mdash; it's how I actually think about watering schedules and light exposure, not in translated English.</p>
+
+        <div class="specimen-grid">
+          <figure>
+            <img src="../assets/balcony-herbarium/01-tradescantia.jpg" alt="Tradescantia zebrina" loading="lazy" />
+            <figcaption>01 &middot; <em>Tradescantia zebrina</em><br>Adam Hawa Rambat</figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/balcony-herbarium/02-asparagus.jpg" alt="Asparagus setaceus" loading="lazy" />
+            <figcaption>02 &middot; <em>Asparagus setaceus</em><br>Pakis Asparagus</figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/balcony-herbarium/03-philodendron.jpg" alt="Philodendron hederaceum Brasil" loading="lazy" />
+            <figcaption>03 &middot; <em>Philodendron hederaceum</em> 'Brasil'<br>Filodendron Brasil</figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/balcony-herbarium/04-monstera.jpg" alt="Monstera adansonii variegata" loading="lazy" />
+            <figcaption>04 &middot; <em>Monstera adansonii</em> var.<br>Janda Bolong Variegata</figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/balcony-herbarium/05-pothos.jpg" alt="Epipremnum aureum Marble Queen" loading="lazy" />
+            <figcaption>05 &middot; <em>Epipremnum aureum</em> 'Marble Queen'<br>Sirih Gading Marmer</figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/balcony-herbarium/06-aglaonema.jpg" alt="Aglaonema sp." loading="lazy" />
+            <figcaption>06 &middot; <em>Aglaonema</em> sp.<br>Sri Rejeki</figcaption>
+          </figure>
+        </div>
 
         <h2>The refactor</h2>
         <p>The first pass had hardcoded cards and a bug &mdash; photo paths pointed at an <code>images/</code> folder that didn't exist, so nothing rendered. The second pass fixed that and went further: the six specimens moved into a single <code>specimens</code> array in an inline script, and the page renders each card, the index nav, and even the footer's specimen count from that data on load. Adding specimen 07 now means appending one object, not copy-pasting a card.</p>
