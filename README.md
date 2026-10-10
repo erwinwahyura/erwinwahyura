@@ -17,7 +17,7 @@ Backend engineer building Go services, tools, and whatever else seems interestin
 | Project | Status | Stack | Links |
 |---------|--------|-------|-------|
 | **Lembar** | Beta | JavaScript, PWA, pdf.js, Cloudflare Workers | [Details](https://erwinwahyura.github.io/erwinwahyura/projects.html#lembar) · [GitHub](https://github.com/erwinwahyura/pdf-reader) |
-| **Quran Memorize** | In Progress | — | [GitHub](https://github.com/erwinwahyura/quran-memorize) |
+| **Hafalan** | Beta | React, TypeScript, PWA, Cloudflare Workers | [Details](https://erwinwahyura.github.io/erwinwahyura/projects.html#hafalan) · [GitHub](https://github.com/erwinwahyura/quran-memorize) |
 | **Kotoba** | Beta | Go, Swift, SQLite, WidgetKit | [Details](https://erwinwahyura.github.io/erwinwahyura/projects.html#kotoba) |
 | **Insider Hub** | Live | Astro, Cloudflare Workers, AI | [Details](https://erwinwahyura.github.io/erwinwahyura/projects.html#insider-hub) |
 | **Synote** | In Progress | Go, Automation, Research | [Details](https://erwinwahyura.github.io/erwinwahyura/projects.html#synote) |
